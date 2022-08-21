@@ -28,7 +28,7 @@ class PoolController extends Controller
             $newImageName = uniqid() . '.webp';
 
             Image::make($request->image->getRealPath())
-                ->fit(620, 460)
+                ->fit(799, 800)
                 ->encode('webp', 80)
                 ->save(storage_path('app/public/pools/' . $newImageName));
 
@@ -72,7 +72,7 @@ class PoolController extends Controller
         $imageName = uniqid() . '.webp';
 
         Image::make($request->image->getRealPath())
-            ->fit(620, 460)
+            ->fit(799, 800)
             ->encode('webp', 80)
             ->save(storage_path('app/public/pools/' . $imageName));
 

@@ -59,7 +59,7 @@
                 {
                     id: '1',
                     heading: 'Quais são os itens e serviços inclusos na promoção?',
-                    content: 'Tanque em Fiber Glass com estrutura reforçada e garantia de 15 anos.\n\nSistema de filtragem de areia com 1/3cv de potência.\n\nSuper LED azul, nicho de fixação, caixa de passagem com tampa inox e fonte 12v.\n\nKit de dispositivos (2 hidromassagens, 1 dispositivo de aspiração, 1 ralo de fundo com sistema anti-aprisionamento).\n\nCascata modelo Hidrocysnei ou Paraty.\n\nMão de obra para escavação.\n\nMão de obra para concretagem do fundo.\n\nColocação.\n\nMão de obra de aterramento.\n\nNivelamento do tanque.\n\nTransporte até 100km.\n\nMão de obra elétrica.\n\nMão de obra hidráulica.\n\nPrimeira limpeza e orientações sobre o uso da piscina.',
+                    content: 'Tanque em Fiber Glass com estrutura reforçada e garantia de 15 anos.\n\nSistema de filtragem de areia.\n\nSuper LED azul, nicho de fixação, caixa de passagem com tampa inox e fonte 12v.\n\nKit de dispositivos (2 hidromassagens, 1 dispositivo de aspiração, 1 ralo de fundo com sistema anti-aprisionamento).\n\nMão de obra para escavação.\n\nMão de obra para concretagem do fundo.\n\nColocação.\n\nMão de obra de aterramento.\n\nNivelamento do tanque.\n\nTransporte até 100km.\n\nMão de obra elétrica.\n\nMão de obra hidráulica.\n',
                     isOpen: false,
                 },
                 {
@@ -113,7 +113,7 @@
                 {
                     id: '10',
                     heading: 'Posso encher minha piscina com água de poço, rio ou córrego?',
-                    content: 'Indicamos utilizar água potável da rede ou caminhão pipa para facilitar o tratamento e para você não perder o benefício da primeira limpeza.',
+                    content: 'Indicamos utilizar água potável da rede ou caminhão pipa para facilitar o tratamento.',
                     isOpen: false,
                 },
                 {

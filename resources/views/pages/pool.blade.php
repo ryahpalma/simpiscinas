@@ -17,7 +17,7 @@
                 <div class="flex flex-col lg:w-11/12 xl:w-3/4">
                     <h2 class="max-w-lg font-sans text-xl font-medium tracking-tight text-black xl:text-2xl">{{ $pool->title }}</h2>
                     <h2 class="text-blue-accent-800 mb-2 max-w-lg font-sans text-lg font-medium tracking-tight">{{ $pool->model }}</h2>
-                    <h2 class="mb-2 max-w-lg font-sans text-lg font-medium tracking-tight text-green-600">Instalação grátis</h2>
+                    <h2 class="mb-2 max-w-lg font-sans text-lg font-medium tracking-tight text-green-600">Instalação inclusa</h2>
                     <div class="flex items-center py-2">
                         <svg aria-hidden="true" class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <title>First star</title>

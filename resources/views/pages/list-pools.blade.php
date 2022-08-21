@@ -20,7 +20,7 @@
                                         <span class="text-xl font-medium text-gray-900">R$ {{ $pool->measurement_price }}</span>
                                         <span class="text-sm font-medium text-green-600">{!! substr($total = $pool->measurement_price - $pool->measurement_price * (10 / 100), 0, 2) !!}% OFF</span>
                                     </div>
-                                    <p class="text-md my-2 font-medium text-green-600">Instalação grátis</p>
+                                    <p class="text-md my-2 font-medium text-green-600">Instalação inclusa</p>
                                     <h5 class="text-md flex-grow font-semibold tracking-tight text-gray-900">{{ $pool->title }}</h5>
                                     <p class="mt-2.5">{{ $pool->measurement }}</p>
                                 </div>

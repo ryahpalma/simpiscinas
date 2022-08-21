@@ -27,6 +27,7 @@
                                             <option value="Praia">Praia</option>
                                             <option value="Retangular">Retangular</option>
                                             <option value="Spa">Spa</option>
+                                            <option value="Personalize">Personalize</option>
                                         </select>
                                     </div>
                                     <div class="group relative z-0 mb-2 w-full">
@@ -60,7 +61,7 @@
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
                                                     </svg>
                                                     <p class="mb-2 p-5 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Clique para enviar</span> a imagem</p>
-                                                    <p class="text-xs text-gray-500 dark:text-gray-400">PNG, JPG (Tamanho: 620x460px)</p>
+                                                    <p class="text-xs text-gray-500 dark:text-gray-400">PNG, JPG (Tamanho: 799x800px)</p>
                                                 </div>
                                         </template>
                                         <template x-if="imageUrl">

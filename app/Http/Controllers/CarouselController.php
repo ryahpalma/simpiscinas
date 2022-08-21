@@ -43,7 +43,7 @@ class CarouselController extends Controller
             $newImageNameMobile = uniqid() . '.webp';
 
             Image::make($request->image_mobile->getRealPath())
-                ->fit(750, 750)
+                ->fit(799, 800)
                 ->encode('webp', 50)
                 ->save(storage_path('app/public/carousels/' . $newImageNameMobile));
 
@@ -122,7 +122,7 @@ class CarouselController extends Controller
             $imageNameMobile = uniqid() . '.webp';
 
             Image::make($request->image_mobile->getRealPath())
-                ->fit(750, 750)
+                ->fit(799, 800)
                 ->encode('webp', 50)
                 ->save(storage_path('app/public/carousels/' . $imageNameMobile));
         }

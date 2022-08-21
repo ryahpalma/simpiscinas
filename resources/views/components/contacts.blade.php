@@ -4,12 +4,12 @@
             Nossos Endereços
         </h2>
     </div>
-    <div class="row-gap-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="row-gap-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         <div class="flex flex-col justify-between rounded border p-5 shadow-sm">
             <div>
                 <h6 class="mb-2 font-semibold leading-5">São Paulo - SP</h6>
                 <p class="mb-3 text-sm text-gray-900">
-                    Tatuapé - Rua Padre Adelino Nº 2074- 12ª andar- CONJ: 121 CEP: 03303-000
+                    Tatuapé - Rua Padre Adelino Nº 2074- 12ª Andar - Conj: 121.
                 </p>
             </div>
             <div class="flex flex-row">
@@ -21,7 +21,7 @@
             <div>
                 <h6 class="mb-2 font-semibold leading-5">São José dos Campos - SP</h6>
                 <p class="mb-3 text-sm text-gray-900">
-                    Av. Cassino Ricardo 601, Sala 161, Parque Residencial Aquários Edifício The One Office Tower
+                    Av. Cassino Ricardo 601, Sala 161, Parque Residencial Aquários, Edifício The One Office Tower.
                 </p>
             </div>
             <div class="flex flex-row">
@@ -33,7 +33,7 @@
             <div>
                 <h6 class="mb-2 font-semibold leading-5">Santos - SP</h6>
                 <p class="mb-3 text-sm text-gray-900">
-                    Av. Senador Feijó N°686, Sala 623, Encruzilhada, Santos- Sp. Edifício The Blue
+                    Av. Senador Feijó, N°686, Sala 623, Encruzilhada, Edifício The Blue.
                 </p>
             </div>
             <div class="flex flex-row">
@@ -45,12 +45,24 @@
             <div>
                 <h6 class="mb-2 font-semibold leading-5">São Bernardo do Campo - SP</h6>
                 <p class="mb-3 text-sm text-gray-900">
-                    Rua José Versolato Nº 111B Centro- Sala 716.
+                    Rua José Versolato, Nº 111B, Sala 716, Centro.
                 </p>
             </div>
             <div class="flex flex-row">
                 <i class='bx bx-sm bxs-phone text-blue-accent-800'></i>
                 <a href="tel:1148375709" aria-label="" class="inline-flex items-center font-semibold text-black transition-colors duration-200 hover:text-gray-600">(11) 4837-5709</a>
+            </div>
+        </div>
+        <div class="flex flex-col justify-between rounded border p-5 shadow-sm">
+            <div>
+                <h6 class="mb-2 font-semibold leading-5">São Bernardo do Campo 2 - SP</h6>
+                <p class="mb-3 text-sm text-gray-900">
+                    Av. Armando Ítalo Setti, Nº 520, 81, Baeta Neves.
+                </p>
+            </div>
+            <div class="flex flex-row">
+                <i class='bx bx-sm bxs-phone text-blue-accent-800'></i>
+                <a href="tel:1131630183" aria-label="" class="inline-flex items-center font-semibold text-black transition-colors duration-200 hover:text-gray-600">(11) 3163-0183</a>
             </div>
         </div>
     </div>

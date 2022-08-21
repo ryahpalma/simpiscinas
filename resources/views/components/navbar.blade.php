@@ -52,6 +52,10 @@
                     {{ __('Dúvidas') }}
                 </x-nav-link>
 
+                <x-nav-link href="{{ route('ombudsman') }}">
+                    {{ __('Ouvidoria') }}
+                </x-nav-link>
+
                 <x-nav-link href="{{ route('about') }}">
                     {{ __('Sobre') }}
                 </x-nav-link>
@@ -59,7 +63,7 @@
             <ul class="hidden items-center space-x-8 text-sm lg:flex">
                 <li>
                     <a href="tel:1235000046" class="bg-pink-accent-800 hover:bg-pink-accent-400 focus:shadow-outline inline-flex h-10 w-full items-center justify-center rounded px-4 font-semibold uppercase tracking-wide text-white shadow-md transition duration-200 focus:outline-none" aria-label="Número Vendas" title="Número Vendas">
-                        (12) 3500-0046
+                        Ligue Agora!
                     </a>
                 </li>
             </ul>
@@ -136,12 +140,16 @@
                                     {{ __('Dúvidas') }}
                                 </x-nav-link>
 
+                                <x-nav-link href="{{ route('ombudsman') }}">
+                                    {{ __('Ouvidoria') }}
+                                </x-nav-link>
+
                                 <x-nav-link href="{{ route('about') }}">
                                     {{ __('Sobre Nós') }}
                                 </x-nav-link>
                                 <li>
                                     <a href="tel:1235000046" class="bg-pink-accent-800 hover:bg-pink-accent-400 focus:shadow-outline inline-flex h-10 w-full items-center justify-center rounded px-4 font-semibold uppercase tracking-wide text-white shadow-md transition duration-200 focus:outline-none" aria-label="Número Vendas" title="Número Vendas">
-                                        (12) 3500-0046
+                                        Ligue Agora!
                                     </a>
                                 </li>
                             </ul>

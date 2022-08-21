@@ -147,6 +147,30 @@
             </x-slot>
         </x-hero-product>
 
+        <x-hero-product align="left">
+            <x-slot name="type">
+                Linha
+            </x-slot>
+
+            <x-slot name="title">
+                Personalize
+            </x-slot>
+
+            <x-slot name="description">
+                A linha Personalize possui acabamento em pastilha cerâmica em diversos tamanhos, fabricada com resinas DCPD, garantindo mais flexibilidade e resistência, possui aba anti-infiltração que evita a erosão do solo nas laterais após instalação.
+            </x-slot>
+
+            <x-slot name="button">
+                <x-button-pink href="/linha/personalize" class="h-10 w-64 uppercase">
+                    {{ __('Medidas e Preços') }}
+                </x-button-pink>
+            </x-slot>
+
+            <x-slot name="image">
+                <img src="{{ asset('img/content/pools/spa.webp') }}" loading="lazy" alt="Linha Personalize">
+            </x-slot>
+        </x-hero-product>
+
     </div>
 
     <x-hero-colorful align="right" color="blue">
@@ -219,6 +243,7 @@
     </div>
     
     <x-contacts/>
+
     <x-contact-form url="/mail/budget">
         <x-slot name="title">
             Solicite um Orçamento

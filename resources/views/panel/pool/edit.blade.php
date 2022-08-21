@@ -28,6 +28,7 @@
                                             <option value="Praia">Praia</option>
                                             <option value="Retangular">Retangular</option>
                                             <option value="Spa">Spa</option>
+                                            <option value="Personalize">Personalize</option>
                                         </select>
                                     </div>
                                     <div class="group relative z-0 mb-2 w-full">

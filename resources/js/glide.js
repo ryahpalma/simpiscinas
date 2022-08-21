@@ -27,7 +27,7 @@ new Glide('#ratings', {
         768: {
             perView: 2,
         },
-        426: {
+        620: {
             perView: 1,
         },
     },
