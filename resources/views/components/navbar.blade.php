@@ -37,6 +37,10 @@
                         <x-dropdown-link href="/linha/spa">
                             {{ __('Linha Spa') }}
                         </x-dropdown-link>
+
+                        <x-dropdown-link href="/linha/personalize">
+                            {{ __('Linha Personalize') }}
+                        </x-dropdown-link>
                     </x-slot>
                 </x-dropdown>
 
@@ -124,6 +128,10 @@
                 
                                         <x-dropdown-link href="/linha/spa">
                                             {{ __('Linha Spa') }}
+                                        </x-dropdown-link>
+
+                                        <x-dropdown-link href="/linha/personalize">
+                                            {{ __('Linha Personalize') }}
                                         </x-dropdown-link>
                                     </x-slot>
                                 </x-dropdown>
