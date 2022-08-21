@@ -97,6 +97,10 @@
                         </div>
                         <nav>
                             <ul class="space-y-4 text-sm">
+                                <x-nav-link href="{{ route('home') }}">
+                                    {{ __('Início') }}
+                                </x-nav-link>
+                                
                                 <x-dropdown align="left" width="48">
                                     <x-slot name="trigger">
                                         <span class="inline-flex rounded-md">
