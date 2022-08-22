@@ -37,7 +37,7 @@
                                     </div>
                                 </div>
                                 <x-jet-label for="description" value="{{ __('Descrição') }}" />
-                                <textarea class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="description" id="description" cols="30" rows="5" value="{{ $pool->description }}">{{ $pool->description }}</textarea>
+                                <textarea class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="description" id="description" cols="30" rows="5" value="{{ str_replace('<br />', '', $pool->description) }}">{{ str_replace('<br />', '', $pool->description) }}</textarea>
                                 <div class="py-6">
                                     <div class="border-t border-gray-200"></div>
                                 </div>

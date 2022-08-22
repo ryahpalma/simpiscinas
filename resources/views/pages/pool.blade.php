@@ -10,7 +10,7 @@
 
 @section('content')
     <x-subnavbar>{{ __('Produto › ' . $pool->title) }}</x-subnavbar>
-    
+
     <div x-data="{ open: false }">
         <div class="lg:pt-17 mx-auto px-3 pt-4 pb-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:pb-20 lg:pt-10">
             <div class="flex flex-col items-start justify-between p-5 py-8 md:rounded-md md:border md:bg-white md:p-10 md:py-12 md:shadow-lg lg:flex-row lg:gap-12">
@@ -64,7 +64,7 @@
                         <div class="border-t border-gray-200"></div>
                     </div>
                     <p class="text-md mb-2 font-semibold text-black">Descrição</p>
-                    <h5 class="text-md font-sans font-medium tracking-tight text-gray-700">{{ $pool->description }}</h5>
+                    <h5 class="text-md font-sans font-medium tracking-tight text-gray-700">{!! $pool->description !!}</h5>
                     <div class="py-6">
                         <div class="border-t border-gray-200"></div>
                     </div>
@@ -124,8 +124,8 @@
         </div>
         <div x-show="open" x-transition class="fixed top-0 right-0 left-0 z-50 bg-gray-900 bg-opacity-80" role="dialog" aria-modal="true">
             <div class="flex min-h-screen items-end justify-center px-4 pt-1 text-center sm:block sm:p-0 md:pb-20">
-                <span class="sm:inline-block sm:h-screen sm:align-middle" aria-hidden="true">​</span>
-                <div class="py-auto my-auto inline-block h-full max-w-lg transform items-center overflow-hidden overflow-y-auto rounded-lg text-left align-bottom shadow-2xl transition-all sm:my-8 sm:w-full sm:align-middle lg:max-w-lg">
+                <span class="sm:inline-block sm:h-screen sm:align-middle" aria-hidden="true"></span>
+                <div class="py-auto my-auto inline-block h-full max-w-lg transform items-center overflow-hidden overflow-y-auto rounded-lg text-left align-bottom shadow-2xl transition-all sm:my-8 sm:w-full sm:align-middle lg:max-w-lg xl:max-w-xl">
                     <button x-on:click="open = ! open" type="button" class="bg-pink-accent-800 hover:bg-pink-accent-40 absolute top-3 right-2.5 ml-auto inline-flex items-center rounded-lg p-1.5 text-sm text-white">
                         <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 

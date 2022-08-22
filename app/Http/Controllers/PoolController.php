@@ -38,7 +38,7 @@ class PoolController extends Controller
         Pool::whereId($request->id)->update([
             'title' => $request->title,
             'line' => $request->line,
-            'description' => $request->description,
+            'description' => nl2br($request->description),
             'measurement' => $request->measurement,
             'measurement_price' => $request->measurement_price,
             'model' => $request->model,
@@ -79,7 +79,7 @@ class PoolController extends Controller
         Pool::create([
             'title' => $request->title,
             'line' => $request->line,
-            'description' => $request->description,
+            'description' => nl2br($request->description),
             'measurement' => $request->measurement,
             'measurement_price' => $request->measurement_price,
             'image' => $imageName,

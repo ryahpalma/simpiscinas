@@ -6,7 +6,7 @@
 
 @section('content')
     <x-subnavbar>{{ __('Franqueado Sim') }}</x-subnavbar>
-    
+
     <div class="flex justify-center pt-4">
         @if (Session::get('status'))
             <div class="mx-auto font-bold text-green-600">Mensagem enviada com sucesso.</div>
@@ -28,11 +28,11 @@
     </x-contact-form>
     <x-hero-colorful align="left" color="pink">
         <x-slot name="title">
-            Somos líderes no segmento
+            Seja um Franqueado Sim
         </x-slot>
 
         <x-slot name="description">
-            A Sim Piscinas é a melhor franquia no ramo para investir e administrar. Nosso modelo de negócios é organizado e testado, nossas piscinas de fibra são adquiridas direto da fábrica.
+            A Sim Piscinas é uma excelente opção para você que pretende entrar para o Ramo de Piscinas, nossos métodos são testados e aprovados, minimizando o risco de você investir em um novo negócio.
         </x-slot>
 
         <x-slot name="button">

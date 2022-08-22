@@ -37,7 +37,7 @@
             </x-slot>
 
             <x-slot name="description">
-                A linha Confort possui design arredondado de diversos tamanhos, reforços desenvolvidos para evitar marcas internas, aba anti-infiltração, evita a erosão do solo nas laterais após instalação.
+                A linha Confort possui banco e escada ao mesmo lado da piscina, ocupando menos espaço e proporcionando muito conforto para quem usa.
             </x-slot>
 
             <x-slot name="button">
@@ -61,7 +61,7 @@
             </x-slot>
 
             <x-slot name="description">
-                A linha Standard é a queridinha dos brasileiros, pois possui todas as características de uma piscina padrão, feita com resinas DCPD para garantir resistência ao solo e chuvas.
+                A linha Standard é a queridinha dos brasileiros, pois possui todas as características de uma piscina padrão, feita com resinas de alta qualidade para garantir resistência ao solo e chuvas.
             </x-slot>
 
             <x-slot name="button">
@@ -133,7 +133,7 @@
             </x-slot>
 
             <x-slot name="description">
-                A linha Spa possui design quadrado de diversos tamanhos, fabricada com resinas DCPD, garantindo mais flexibilidade e resistência, possui aba anti-infiltração que evita a erosão do solo nas laterais após instalação.
+                A linha Spa possui design quadrado de diversos tamanhos, fabricada com resina de alta qualidade, garantindo mais flexibilidade e resistência, possui aba anti-infiltração que evita a erosão do solo nas laterais após instalação.
             </x-slot>
 
             <x-slot name="button">
@@ -157,7 +157,7 @@
             </x-slot>
 
             <x-slot name="description">
-                A linha Personalize possui acabamento em pastilha cerâmica em diversos tamanhos, fabricada com resinas DCPD, garantindo mais flexibilidade e resistência, possui aba anti-infiltração que evita a erosão do solo nas laterais após instalação.
+                A linha Personalize possui acabamento em pastilha cerâmica em diversos tamanhos, fabricada com resina de alta qualidade, garantindo mais flexibilidade e resistência, possui aba anti-infiltração que evita a erosão do solo nas laterais após instalação.
             </x-slot>
 
             <x-slot name="button">
@@ -167,7 +167,7 @@
             </x-slot>
 
             <x-slot name="image">
-                <img src="{{ asset('img/content/pools/spa.webp') }}" loading="lazy" alt="Linha Personalize">
+                <img src="{{ asset('img/content/pools/personalize.webp') }}" loading="lazy" alt="Linha Personalize">
             </x-slot>
         </x-hero-product>
 

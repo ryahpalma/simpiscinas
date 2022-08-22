@@ -18,6 +18,7 @@ use App\Http\Controllers\MailController;
 |
 */
 
+Route::redirect('/email', 'https://mail.hostinger.com/?clearSession=true&_user=contato@simpiscinas.com');
 Route::redirect('/painel', '/dashboard');
 
 Route::post('/mail/budget', [MailController::class, 'budget'])->name('mail.budget');

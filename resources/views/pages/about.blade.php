@@ -8,11 +8,11 @@
     <x-subnavbar>{{ __('Somos Sim Piscinas') }}</x-subnavbar>
     <x-hero-colorful align="left" color="blue">
         <x-slot name="title">
-            Somos a solução no mercado de piscinas
+            Seja um Franqueado Sim
         </x-slot>
 
         <x-slot name="description">
-            Nós utilizamos modelos de piscinas elegantes e de alta qualidade, sempre garantindo o melhor custo-benefício do mercado. Nossas instalações seguem um método próprio, mantendo sempre um padrão no acabamento, satisfazendo todos nossos clientes.
+            A Sim Piscinas é uma excelente opção para você que pretende entrar para o Ramo de Piscinas, nossos métodos são testados e aprovados, minimizando o risco de você investir em um novo negócio.
         </x-slot>
 
         <x-slot name="button">
@@ -37,11 +37,11 @@
     </x-hero-colorful>
     <x-hero-colorful align="right" color="white">
         <x-slot name="title">
-            Somos líderes no segmento
+            Seja um franqueado Sim
         </x-slot>
 
         <x-slot name="description">
-            A Sim Piscinas é a melhor franquia no ramo para investir e administrar. Nosso modelo de negócios é organizado e testado, nossas piscinas de fibra são distribuidas direto da fábrica.
+            A Sim Piscinas é uma excelente opção para você que pretende entrar para o Ramo de Piscinas, nossos métodos são testados e aprovados, minimizando o risco de você investir em um novo negócio.
         </x-slot>
 
         <x-slot name="button">
