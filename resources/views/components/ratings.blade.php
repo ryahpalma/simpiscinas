@@ -14,4 +14,7 @@
     <div class="w-full">
         {{ $images }}
     </div>
+    <div class="flex justify-center py-6">
+        {{ $button }}
+    </div>
 </div>

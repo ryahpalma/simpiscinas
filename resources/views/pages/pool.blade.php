@@ -59,7 +59,16 @@
                         <div class="border-t border-gray-200"></div>
                     </div>
                     <p class="text-md mb-2 font-semibold text-black">Dimensões (C x L x P)</p>
-                    <h5 class="text-md font-sans font-medium tracking-tight text-gray-700">{{ $pool->measurement }}</h5>
+                    <h5 class="text-md font-sans font-medium tracking-tight text-gray-700">
+                        @php
+                            if (strpos($pool->measurement, 0) === 0) {
+                                $fixedMeasurement = ltrim($pool->measurement, $pool->measurement[0]);
+                                echo $fixedMeasurement;
+                            } else {
+                                echo $pool->measurement;
+                            }
+                        @endphp
+                    </h5>
                     <div class="py-6">
                         <div class="border-t border-gray-200"></div>
                     </div>
@@ -91,14 +100,14 @@
                     </div>
                 </div>
                 <div class="flex w-full flex-col">
-                    <img x-on:click="open = ! open" src="{{ asset('storage/pools/' . $pool->image) }}" class="hidden w-full cursor-zoom-in rounded lg:block" alt="">
+                    <img x-on:click="open = ! open" src="{{ asset('storage/pools/' . $pool->image) }}" class="hidden w-full cursor-zoom-in rounded lg:block" alt="Piscina">
                     <div class="py-10">
                         <div class="border-t border-gray-200"></div>
                     </div>
-                    <div class="flex flex-col space-y-4 rounded-md bg-gray-100 py-8 px-4 sm:text-center lg:space-y-0 xl:flex-row">
+                    <div class="grid grid-cols-1 space-y-4 xl:space-y-0 rounded-md bg-gray-100 py-6 px-4 xl:grid-cols-2">
                         <div class="md:mb-4 lg:px-4">
                             <h4 class="mb-2 text-left font-bold text-black">Compre pelo Telefone</h4>
-                            <div class="flex flex-col space-y-1 text-[13px] font-medium">
+                            <div class="flex flex-col space-y-1 text-[11px] font-medium">
                                 <div class="flex flex-row items-center space-x-1">
                                     <i class="bx bx-sm bxl-whatsapp text-green-accent-700"></i>
                                     <p class="text-black">WhatsApp: <a class="font-semibold text-blue-800 hover:underline" href="https://api.whatsapp.com/send/?phone=5512996756652">(12) 99675-6652</a> <span class="text-gray-700">Nacional</span></p>
@@ -109,14 +118,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="lg:px-4">
+                        <div class="md:mb-4 lg:px-4">
                             <h4 class="mb-2 text-left font-bold text-black">Compre por E-mail</h4>
-                            <div class="flex flex-col text-[13px] font-medium">
+                            <div class="flex flex-col text-[11px] font-medium">
                                 <div class="flex flex-row items-center space-x-1">
                                     <i class="bx bx-sm bx-envelope text-green-accent-700"></i>
-                                    <p class="text-black">E-mail: <a class="font-semibold text-blue-800 hover:underline" href="mailto:contato@simpiscinas.com">contato@simpiscinas.com</a></p>
+                                    <p class="text-black">E-mail: <a class="font-semibold text-blue-800 hover:underline" href="mailto:contato@simpiscinas.com.br">contato@simpiscinas.com.br</a></p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="lg:px-4">
+                            <p class="text-black text-[12px]">* Consulte disponibilidade em sua cidade</p>
                         </div>
                     </div>
                 </div>

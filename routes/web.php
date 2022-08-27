@@ -35,6 +35,7 @@ Route::get('/duvidas', [MainController::class, 'doubts'])->name('doubts');
 Route::get('/sobre-nos', [MainController::class, 'about'])->name('about');
 Route::get('/seja-um-franqueado', [MainController::class, 'franchise'])->name('franchise');
 Route::get('/politica-de-privacidade', [MainController::class, 'privacy'])->name('privacy');
+Route::get('/avaliacoes', [MainController::class, 'ratings'])->name('ratings');
 
 Route::middleware([
     'auth:sanctum',

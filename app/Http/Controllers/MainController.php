@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Artesaos\SEOTools\Facades\SEOTools;
 use App\Models\Carousel;
 use App\Models\Pool;
@@ -125,5 +124,19 @@ class MainController extends Controller
         SEOTools::opengraph()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-desktop.jpg', ['height' => 620, 'width' => 1200]);
 
         return view('pages.privacy');
+    }
+
+    public function ratings()
+    {
+        SEOTools::setTitle('Avaliações');
+        SEOTools::setDescription('Veja Todas as Avaliações dos Nossos Clientes');
+        SEOTools::opengraph()->setUrl('https://www.simpiscinas.com/avaliacoes');
+        SEOTools::setCanonical('https://www.simpiscinas.com/avaliacoes');
+        SEOTools::opengraph()->addProperty('type', 'articles');
+        SEOTools::jsonLd()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-desktop.jpg');
+        SEOTools::opengraph()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-mobile.jpg', ['height' => 1200, 'width' => 1200]);
+        SEOTools::opengraph()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-desktop.jpg', ['height' => 620, 'width' => 1200]);
+
+        return view('pages.ratings');
     }
 }

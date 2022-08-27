@@ -214,6 +214,12 @@
             </x-carousel>
         </x-slot>
 
+        <x-slot name="button">
+            <x-button-pink href="{{ route('ratings') }}" class="h-10 w-64 uppercase">
+                {{ __('Ver Mais Avaliações') }}
+            </x-button-pink>
+        </x-slot>
+
     </x-ratings>
 
     <x-hero-colorful align="left" color="pink">
@@ -244,19 +250,21 @@
     
     <x-contacts/>
 
-    <x-contact-form url="/mail/budget">
-        <x-slot name="title">
-            Solicite um Orçamento
-        </x-slot>
-        <x-slot name="description">
-            Ao preencher os campos abaixo, você automaticamente concorda com nossos termos de uso e política de privacidade de dados.
-        </x-slot>
-        <x-slot name="action">
-            <button type="submit" class="bg-pink-accent-800 hover:bg-pink-accent-700 active:bg-pink-accent-900 inline-flex h-12 w-64 items-center justify-center rounded-md border border-transparent px-4 py-2 text-[0.9rem] text-xs font-semibold uppercase tracking-widest text-white transition focus:border-gray-900 focus:outline-none focus:ring focus:ring-gray-300 disabled:opacity-25" href="{{ route('privacy') }}">
-                Enviar Mensagem
-            </button>
-        </x-slot>
-    </x-contact-form>
+    <div class="mx-auto text-center px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-17">
+        <div class="mb-2 flex flex-col sm:mb-0 sm:text-center">
+            <div class="mb-7 max-w-xl space-y-4 sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl">
+                <h2 class="max-w-lg font-sans text-3xl font-bold uppercase leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+                    Solicite um Orçamento
+                </h2>
+                <p class="text-base text-gray-700 md:text-lg">
+                    É fácil e prático, basta preencher os dados e entraremos em contato o mais breve possível!
+                </p>
+                <x-button-pink href="{{ route('budget') }}" class="h-10 w-64 uppercase">
+                    {{ __('Solicitar Agora') }}
+                </x-button-pink>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')

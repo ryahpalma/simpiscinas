@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
 use Artesaos\SEOTools\Facades\SEOTools;
 use App\Models\Pool;
 
