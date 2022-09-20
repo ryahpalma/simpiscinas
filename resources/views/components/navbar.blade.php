@@ -44,6 +44,10 @@
                     </x-slot>
                 </x-dropdown>
 
+                <x-nav-link href="{{ route('products') }}">
+                    {{ __('Produtos') }}
+                </x-nav-link>
+
                 <x-nav-link href="{{ route('franchise') }}">
                     {{ __('Seja um Franqueado') }}
                 </x-nav-link>
@@ -60,9 +64,6 @@
                     {{ __('Ouvidoria') }}
                 </x-nav-link>
 
-                <x-nav-link href="{{ route('about') }}">
-                    {{ __('Sobre') }}
-                </x-nav-link>
             </ul>
             <ul class="hidden items-center space-x-8 text-sm lg:flex">
                 <li>
@@ -78,7 +79,7 @@
                         <path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-                <div :class="{ 'block': open, 'hidden': !open }" class="absolute top-0 left-0 z-50 hidden w-full sm:hidden">
+                <div :class="{ 'block': open, 'hidden': !open }" class="absolute top-0 left-0 z-50 hidden w-full lg:hidden">
                     <div class="bg-blue-accent-800 rounded border-2 p-5 shadow-md">
                         <div class="mb-4 flex items-center justify-between">
                             <div>
@@ -140,6 +141,10 @@
                                     </x-slot>
                                 </x-dropdown>
 
+                                <x-nav-link href="{{ route('products') }}">
+                                    {{ __('Produtos') }}
+                                </x-nav-link>
+
                                 <x-nav-link href="{{ route('franchise') }}">
                                     {{ __('Seja um Franqueado') }}
                                 </x-nav-link>
@@ -156,9 +161,6 @@
                                     {{ __('Ouvidoria') }}
                                 </x-nav-link>
 
-                                <x-nav-link href="{{ route('about') }}">
-                                    {{ __('Sobre Nós') }}
-                                </x-nav-link>
                                 <li>
                                     <a href="tel:1235000046" class="bg-pink-accent-800 hover:bg-pink-accent-400 focus:shadow-outline inline-flex h-10 w-full items-center justify-center rounded px-4 font-semibold uppercase tracking-wide text-white shadow-md transition duration-200 focus:outline-none" aria-label="Número Vendas" title="Número Vendas">
                                         Ligue Agora!

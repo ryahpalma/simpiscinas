@@ -46,7 +46,7 @@ switch ($color) {
                 </div>
                 <div class="mb-8 lg:mb-0 lg:max-w-lg lg:pr-5 text-center lg:text-left">
                     <div class="mb-6 max-w-xl">
-                        <h2 class="mb-6 max-w-lg font-sans text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none">
+                        <h2 class="mb-6 lg:max-w-lg font-sans text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none">
                             {{ $title }}
                         </h2>
                         <p class="font-medium text-base md:text-lg">

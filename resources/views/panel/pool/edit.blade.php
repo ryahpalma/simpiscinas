@@ -51,27 +51,28 @@
                                         <x-jet-input x-data="" x-mask:dynamic="$money($input, ',')" class="mt-1 w-full" type="text" name="measurement_price" value="{{ $pool->measurement_price }}" required autofocus />
                                     </div>
                                 </div>
+                                <input class="hidden" type="text" name="id" value="{{ $pool->id }}">
                             </div>
-                            <div x-data="imageViewer()">
+                            <div x-data="manageViewer()">
                                 <div class="mb-2 py-12 lg:py-0">
-                                    <div class="flex w-full items-center justify-center">
-                                        <template x-if="!imageUrl">
-                                            <label for="dropzone-file" class="flex h-[200px] w-[300px] cursor-pointer items-center justify-center rounded-lg md:h-[300px] md:w-[400px]">
-                                                <div class="flex items-center justify-center">
-                                                    <img src="{{ asset('storage/pools/' . $pool->image) }}" class="w-full rounded border-2 border-dashed border-gray-300 object-cover md:h-[300px]">
-                                                </div>
-                                        </template>
-                                        <template x-if="imageUrl">
-                                            <label for="dropzone-file" class="flex h-[200px] w-[300px] cursor-pointer items-center justify-center rounded-lg md:h-[300px] md:w-[400px]">
-                                                <div class="flex items-center justify-center">
-                                                    <img :src="imageUrl" class="w-full rounded border-2 border-dashed border-gray-300 object-cover md:h-[300px]">
-                                                </div>
-                                        </template>
-                                        <input x-on:change="fileChosen" id="dropzone-file" type="file" accept="image/*" class="hidden" name="image" />
+                                    <div class="items-left flex w-full flex-col justify-center">
+                                        <label for="dropzone-file" class="flex h-[200px] w-[300px] cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100 md:h-[200px] md:w-[600px] lg:w-[400px]">
+                                            <div class="flex flex-col items-center justify-center">
+                                                <svg aria-hidden="true" class="mb-3 h-10 w-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                                </svg>
+                                                <p class="mb-2 p-5 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Clique para enviar</span> a imagem</p>
+                                                <p class="text-xs text-gray-500 dark:text-gray-400">PNG, JPG (Tamanho: 799x800px)</p>
+                                            </div>
+                                            <input x-on:click="resetPreview($event)" x-on:change="previewImage($event)" id="dropzone-file" type="file" accept="image/*" class="hidden" name="images[]" multiple />
                                         </label>
+                                        <input class="hidden" type="text" name="oldImagesName" value="{{ $pool->images }}">
+                                        <div id="preview" class="mt-4 grid grid-cols-3 justify-center gap-1">
+                                            @foreach (explode(',', $pool->images) as $image)
+                                                <img class="image-preview h-28 w-28 rounded border border-gray-300 object-cover p-1" src="{{ asset('pools/' . $image) }}">
+                                            @endforeach
+                                        </div>
                                     </div>
-                                    <input class="hidden" type="text" name="oldImageName" value="{{ $pool->image }}" />
-                                    <input class="hidden" type="text" name="id" value="{{ $pool->id }}" />
                                 </div>
                             </div>
                         </div>
@@ -87,23 +88,35 @@
 </x-app-layout>
 
 <script>
-    const imageViewer = () => {
+    const manageViewer = () => {
         return {
-            imageUrl: '',
+            previewImage(event) {
+                let files = event.target.files;
+                const preview = document.getElementById("preview");
 
-            fileChosen(event) {
-                this.fileToDataUrl(event, (src) => (this.imageUrl = src));
+                for (let i = 0; i < files.length; i++) {
+                    let file = files[i];
+                    let picReader = new FileReader();
+                    picReader.addEventListener("load", function(event) {
+                        let picFile = event.target;
+                        let img = document.createElement("img");
+
+                        img.classList.add("image-preview", "h-28", "w-28", "rounded", "border", "border-gray-300", "object-cover", "p-1");
+                        img.src = picFile.result;
+                        preview.appendChild(img);
+                    });
+                    picReader.readAsDataURL(file);
+                }
             },
+            resetPreview(event) {
+                let images = document.querySelectorAll('.image-preview');
 
-            fileToDataUrl(event, callback) {
-                if (!event.target.files.length) return;
-
-                let file = event.target.files[0],
-                    reader = new FileReader();
-
-                reader.readAsDataURL(file);
-                reader.onload = (e) => callback(e.target.result);
-            },
+                if (images.length > 0) {
+                    images.forEach(image => {
+                        image.remove();
+                    });
+                }
+            }
         }
     }
 </script>

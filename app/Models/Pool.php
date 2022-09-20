@@ -10,7 +10,7 @@ class Pool extends Model
     protected $fillable = [
         'title',
         'line',
-        'image',
+        'images',
         'model',
         'description',
         'measurement',

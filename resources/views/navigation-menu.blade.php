@@ -21,6 +21,12 @@
                     <x-jet-nav-link href="{{ route('carousel.list') }}" :active="request()->routeIs('carousel.list')">
                         {{ __('Imagens') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('product.list') }}" :active="request()->routeIs('product.list')">
+                        {{ __('Produtos') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('rate.list') }}" :active="request()->routeIs('rate.list')">
+                        {{ __('Avaliações') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -154,6 +160,12 @@
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('carousel.list') }}" :active="request()->routeIs('carousel.list')">
                 {{ __('Imagens') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('product.list') }}" :active="request()->routeIs('product.list')">
+                {{ __('Produtos') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('rate.list') }}" :active="request()->routeIs('rate.list')">
+                {{ __('Avaliações') }}
             </x-jet-responsive-nav-link>
         </div>
 

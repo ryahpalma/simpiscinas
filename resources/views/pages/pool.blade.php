@@ -1,12 +1,14 @@
 @extends('layouts.master')
 
 @push('stylesheet')
-    @vite(['resources/sass/app.scss'])
+    @vite(['resources/sass/app.scss', 'resources/sass/_glide.scss'])
 @endpush
 
 @push('background-color')
     class="md:bg-gray-200"
 @endpush
+
+@php $images = explode(',', $pool->images); @endphp
 
 @section('content')
     <x-subnavbar>{{ __('Produto › ' . $pool->title) }}</x-subnavbar>
@@ -47,13 +49,21 @@
                             <span class="xl:text-md text-sm font-medium text-green-600">{!! substr($total = $pool->measurement_price - $pool->measurement_price * (10 / 100), 0, 2) !!}% OFF</span>
                         </div>
                         <div id="buyProduct" class="pt-4 lg:pt-0">
-                            <x-button-blue href="{{ route('budget.custom', ['pool' => $pool->id]) }}" class="lg:w-42 h-10 w-full text-sm uppercase">
+                            <x-button-blue href="{{ route('budget.custom', ['item' => str_replace([' ', '/', '.'], '-', mb_strtolower($pool->title))]) }}" class="lg:w-42 h-10 w-full text-sm uppercase">
                                 {{ __('Comprar agora') }}
                             </x-button-blue>
                         </div>
                     </div>
-                    <div x-on:click="open = ! open" class="block py-6 lg:hidden">
-                        <img src="{{ asset('storage/pools/' . $pool->image) }}" class="w-full rounded" alt="">
+                    <div class="block py-6 lg:hidden">
+                        <x-carousel id="itemMobile" class="grid">
+                            <x-slot name="images">
+                                @foreach ($images as $image)
+                                    <div class="glide__slide bg-gray-200">
+                                        <img class="rounded" src="{{ asset('storage/pools/' . $image) }}">
+                                    </div>
+                                @endforeach
+                            </x-slot>
+                        </x-carousel>
                     </div>
                     <div class="py-6">
                         <div class="border-t border-gray-200"></div>
@@ -99,12 +109,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex w-full flex-col">
-                    <img x-on:click="open = ! open" src="{{ asset('storage/pools/' . $pool->image) }}" class="hidden w-full cursor-zoom-in rounded lg:block" alt="Piscina">
+                <div class="grid w-full grid-cols-1">
+                    <x-carousel id="itemDesktop" class="hidden lg:block">
+                        <x-slot name="images">
+                            @foreach ($images as $image)
+                                <div class="glide__slide bg-gray-200">
+                                    <img class="rounded" src="{{ asset('storage/pools/' . $image) }}">
+                                </div>
+                            @endforeach
+                        </x-slot>
+                    </x-carousel>
                     <div class="py-10">
                         <div class="border-t border-gray-200"></div>
                     </div>
-                    <div class="grid grid-cols-1 space-y-4 xl:space-y-0 rounded-md bg-gray-100 py-6 px-4 xl:grid-cols-2">
+                    <div class="grid grid-cols-1 space-y-4 rounded-md bg-gray-100 py-6 px-4 xl:grid-cols-2 xl:space-y-0">
                         <div class="md:mb-4 lg:px-4">
                             <h4 class="mb-2 text-left font-bold text-black">Compre pelo Telefone</h4>
                             <div class="flex flex-col space-y-1 text-[11px] font-medium">
@@ -128,23 +146,9 @@
                             </div>
                         </div>
                         <div class="lg:px-4">
-                            <p class="text-black text-[12px]">* Consulte disponibilidade em sua cidade</p>
+                            <p class="text-[12px] text-black">* Consulte disponibilidade em sua cidade</p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div x-show="open" x-transition class="fixed top-0 right-0 left-0 z-50 bg-gray-900 bg-opacity-80" role="dialog" aria-modal="true">
-            <div class="flex min-h-screen items-end justify-center px-4 pt-1 text-center sm:block sm:p-0 md:pb-20">
-                <span class="sm:inline-block sm:h-screen sm:align-middle" aria-hidden="true"></span>
-                <div class="py-auto my-auto inline-block h-full max-w-lg transform items-center overflow-hidden overflow-y-auto rounded-lg text-left align-bottom shadow-2xl transition-all sm:my-8 sm:w-full sm:align-middle lg:max-w-lg xl:max-w-xl">
-                    <button x-on:click="open = ! open" type="button" class="bg-pink-accent-800 hover:bg-pink-accent-40 absolute top-3 right-2.5 ml-auto inline-flex items-center rounded-lg p-1.5 text-sm text-white">
-                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 
-                                4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                    <img src="{{ asset('storage/pools/' . $pool->image) }}" class="w-full rounded" alt="">
                 </div>
             </div>
         </div>
@@ -152,5 +156,5 @@
 @endsection
 
 @push('scripts')
-    @vite(['resources/js/app.js'])
+    @vite(['resources/js/app.js', 'resources/js/glide.js'])
 @endpush

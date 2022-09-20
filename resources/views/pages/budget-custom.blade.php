@@ -15,7 +15,7 @@
 
     <x-contact-form url="/mail/budget">
         <x-slot name="title">
-            Orçamento {{ $pool->title }}
+            Orçamento - {{ $item }}
         </x-slot>
         <x-slot name="description">
             Ao preencher os campos abaixo, você automaticamente concorda com nossos termos de uso e política de privacidade de dados.

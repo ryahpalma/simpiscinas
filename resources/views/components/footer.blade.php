@@ -1,4 +1,4 @@
-<a href="https://api.whatsapp.com/send/?phone=5512996756652" title="Chamar no WhatsApp" class="fixed bottom-10 right-8 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-green-600 text-4xl text-white drop-shadow-lg duration-300 hover:bg-green-700 hover:drop-shadow-2xl">
+<a href="https://api.whatsapp.com/send/?phone=5512996756652" title="Chamar no WhatsApp" class="fixed bottom-10 right-8 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-600 text-4xl text-white drop-shadow-lg duration-300 hover:bg-green-700 hover:drop-shadow-2xl">
     <i class='bx bxl-whatsapp'></i>
 </a>
 <div class="bg-blue-accent-800 relative">

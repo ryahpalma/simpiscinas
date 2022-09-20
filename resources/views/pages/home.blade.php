@@ -11,7 +11,7 @@
                 @foreach ($pools as $pool)
                     @if ($carousel->pool_id == $pool->id)
                         <li class="glide__slide">
-                            <a href="/{{ $pool->id }}/{{ str_replace([' ', '/', '.'], '-', mb_strtolower($pool->title)) }}/detalhes">
+                            <a href="piscina/{{ $pool->id }}/{{ str_replace([' ', '/', '.'], '-', mb_strtolower($pool->title)) }}/detalhes">
                                 <picture>
                                     <source media="(max-width: 767px)" srcset="{{ asset('storage/carousels/' . $carousel->image_mobile) }}">
                                     <img class="w-full" alt="{{ $carousel->title }}" src="{{ asset('storage/carousels/' . $carousel->image_desktop) }}" title="{{ $carousel->title }}">
@@ -205,11 +205,11 @@
         <x-slot name="images">
             <x-carousel id="ratings">
                 <x-slot name="images">
-                    @for ($i = 1; $i <= 6; $i++)
+                    @foreach ($rates as $rate)
                         <li class="glide__slide bg-black">
-                            <img alt="Avaliação Sim Piscinas" src="{{ asset('img/content/ratings/' . $i . '.webp') }}">
+                            <img alt="Avaliação Sim Piscinas" src="{{ asset('storage/' . $rate) }}">
                         </li>
-                    @endfor
+                    @endforeach
                 </x-slot>
             </x-carousel>
         </x-slot>
@@ -247,10 +247,10 @@
             <div class="mx-auto font-bold text-green-600">Mensagem enviada com sucesso.</div>
         @endif
     </div>
-    
-    <x-contacts/>
 
-    <div class="mx-auto text-center px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-17">
+    <x-contacts />
+
+    <div class="lg:py-17 mx-auto px-4 py-16 text-center sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
         <div class="mb-2 flex flex-col sm:mb-0 sm:text-center">
             <div class="mb-7 max-w-xl space-y-4 sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl">
                 <h2 class="max-w-lg font-sans text-3xl font-bold uppercase leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">

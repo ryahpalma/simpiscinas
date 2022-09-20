@@ -4,7 +4,7 @@
         <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
             <div class="mb-2 flex flex-col sm:mb-0 sm:text-center">
                 <div class="mb-7 max-w-xl sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl">
-                    <h2 class="mb-6 max-w-lg font-sans text-3xl font-bold uppercase leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+                    <h2 class="mb-6 max-w-2xl font-sans text-3xl font-bold uppercase leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
                         {{ $title }}
                     </h2>
                     <p class="text-base text-gray-700 md:text-lg">

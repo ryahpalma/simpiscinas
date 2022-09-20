@@ -2,41 +2,97 @@
 
 namespace App\Http\Controllers;
 
-use Artesaos\SEOTools\Facades\SEOTools;
-use App\Models\Pool;
-
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use Illuminate\Http\Request;
+use App\Models\Product;
 class ProductController extends Controller
 {
-    public function listPools($line)
+    public function list()
     {
-        $poolDetails = Pool::where('line', $line)->get();
-
-        SEOTools::setTitle('Linha');
-        SEOTools::setDescription('Oferecemos O Que Há de Melhor no Mercado: Promoção de Piscinas, Equipamentos, Acessórios, Produtos Químicos, Serviços de Manutenção e Tratamento.');
-        SEOTools::opengraph()->setUrl('https://www.simpiscinas.com/');
-        SEOTools::setCanonical('https://www.simpiscinas.com/');
-        SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::jsonLd()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-desktop.jpg');
-        SEOTools::opengraph()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-mobile.jpg', ['height' => 1200, 'width' => 1200]);
-        SEOTools::opengraph()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-desktop.jpg', ['height' => 620, 'width' => 1200]);
-
-        return view('pages.list-pools', ['pools' => $poolDetails, 'line' => $line]);
+        $products = Product::get();
+        return view('panel.product.list', ['products' => $products]);
     }
 
-    public function showPool($id)
+    public function edit($id)
     {
-        $poolDetails = Pool::where('id', $id)->get()->first();
-        $poolUrl = 'https://www.simpiscinas.com/' . $poolDetails->id . '/' . str_replace([' ', '/', '.'], '-', mb_strtolower($poolDetails->title)) . '/detalhes';
+        $product = Product::whereId($id)->get()->first();
 
-        SEOTools::setTitle($poolDetails->title);
-        SEOTools::setDescription($poolDetails->description);
-        SEOTools::opengraph()->setUrl($poolUrl);
-        SEOTools::setCanonical($poolUrl);
-        SEOTools::opengraph()->addProperty('type', 'articles');
-        SEOTools::jsonLd()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-desktop.jpg');
-        SEOTools::opengraph()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-mobile.jpg', ['height' => 1200, 'width' => 1200]);
-        SEOTools::opengraph()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-desktop.jpg', ['height' => 620, 'width' => 1200]);
+        return view('panel.product.edit', ['product' => $product]);
+    }
 
-        return view('pages.pool', ['pool' => $poolDetails]);
+    public function editDo(Request $request)
+    {
+        if ($request->hasFile('images')) {
+            $newImagesName = array();
+
+            foreach ($request->images as $image) {
+                $newImageName = uniqid() . '.webp';
+                $newImagesName[] = $newImageName;
+
+                Image::make($image->getRealPath())
+                    ->fit(799, 800)
+                    ->encode('webp', 70)
+                    ->save(storage_path('app/public/products/' . $newImageName));
+            }
+
+            foreach (explode(",", $request->oldImagesName) as $image) {
+                if (Storage::exists('products/' . $image)) {
+                    Storage::delete('products/' . $image);
+                }
+            }
+        }
+
+        Product::whereId($request->id)->update([
+            'title' => $request->title,
+            'description' => nl2br($request->description),
+            'images' => $request->hasFile('images') ? implode(",", $newImagesName) : $request->oldImagesName,
+        ]);
+
+        return redirect()->route('product.list');
+    }
+
+    public function deleteDo($id)
+    {
+        $product = Product::whereId($id)->get()->first();
+        $images = explode(",", $product->images);
+
+        foreach ($images as $image) {
+            if (Storage::exists('products/' . $image)) {
+                Storage::delete('products/' . $image);
+            }
+        }
+
+        Product::destroy($id);
+
+        return redirect()->route('product.list');
+    }
+
+    public function create()
+    {
+        return view('panel.product.create');
+    }
+
+    public function createDo(Request $request)
+    {
+        $imagesName = array();
+
+        foreach ($request->images as $image) {
+            $imageName = uniqid() . '.webp';
+            $imagesName[] = $imageName;
+
+            Image::make($image->getRealPath())
+                ->fit(799, 800)
+                ->encode('webp', 70)
+                ->save(storage_path('app/public/products/' . $imageName));
+        }
+
+        Product::create([
+            'title' => $request->title,
+            'description' => nl2br($request->description),
+            'images' => implode(",", $imagesName),
+        ]);
+
+        return redirect()->route('product.list');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Artesaos\SEOTools\Facades\SEOTools;
 use App\Models\Carousel;
 use App\Models\Pool;
@@ -22,8 +23,9 @@ class MainController extends Controller
 
         $carousels = Carousel::get();
         $pools = Pool::get();
+        $rates = array_slice(Storage::files('rates'), 0, 6);
 
-        return view('pages.home', ['carousels' => $carousels, 'pools' => $pools]);
+        return view('pages.home', ['carousels' => $carousels, 'pools' => $pools, 'rates' => $rates]);
     }
 
     public function franchise()
@@ -54,7 +56,7 @@ class MainController extends Controller
         return view('pages.budget');
     }
 
-    public function budgetCustom($pool)
+    public function budgetCustom($item)
     {
         SEOTools::setTitle('Orçamento');
         SEOTools::setDescription('Realize Seu Orçamento');
@@ -65,9 +67,7 @@ class MainController extends Controller
         SEOTools::opengraph()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-mobile.jpg', ['height' => 1200, 'width' => 1200]);
         SEOTools::opengraph()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-desktop.jpg', ['height' => 620, 'width' => 1200]);
 
-        $pool = Pool::whereId($pool)->get()->first();
-
-        return view('pages.budget-custom', ['pool' => $pool]);
+        return view('pages.budget-custom', ['item' => str_replace('-', ' ', mb_strtolower($item))]);
     }
 
     public function ombudsman()
@@ -137,6 +137,8 @@ class MainController extends Controller
         SEOTools::opengraph()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-mobile.jpg', ['height' => 1200, 'width' => 1200]);
         SEOTools::opengraph()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-desktop.jpg', ['height' => 620, 'width' => 1200]);
 
-        return view('pages.ratings');
+        $rates = Storage::files('rates');
+
+        return view('pages.ratings', ['rates' => $rates]);
     }
 }

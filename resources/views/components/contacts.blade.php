@@ -4,7 +4,7 @@
             Nossos Endereços
         </h2>
     </div>
-    <div class="row-gap-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="flex flex-col justify-between rounded border p-5 shadow-sm">
             <div>
                 <h6 class="mb-2 font-semibold leading-5">São Paulo - SP</h6>
@@ -63,6 +63,18 @@
             <div class="flex flex-row">
                 <i class='bx bx-sm bxs-phone text-blue-accent-800'></i>
                 <a href="tel:1131630183" aria-label="" class="inline-flex items-center font-semibold text-black transition-colors duration-200 hover:text-gray-600">(11) 3163-0183</a>
+            </div>
+        </div>
+        <div class="flex flex-col justify-between rounded border p-5 shadow-sm">
+            <div>
+                <h6 class="mb-2 font-semibold leading-5">Caraguatatuba - SP</h6>
+                <p class="mb-3 text-sm text-gray-900">
+                    Av. Jose Herculano 4430, Praia Das Palmeiras.
+                </p>
+            </div>
+            <div class="flex flex-row">
+                <i class='bx bx-sm bxs-phone text-blue-accent-800'></i>
+                <a href="tel:1238881356" aria-label="" class="inline-flex items-center font-semibold text-black transition-colors duration-200 hover:text-gray-600">(12) 3888-1356</a>
             </div>
         </div>
     </div>

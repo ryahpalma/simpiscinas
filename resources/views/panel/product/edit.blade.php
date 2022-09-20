@@ -1,55 +1,25 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Cadastrar Piscina') }}
+            {{ __('Cadastrar Produto') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <form method="post" action="{{ route('pool.create.do') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('product.edit.do') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
                     <div class="border-b border-gray-200 bg-white p-6 sm:px-20">
                         <div class="flex flex-col justify-between gap-x-12 lg:flex-row">
                             <div class="basis-7/12">
-                                <div class="grid md:grid-cols-3 md:gap-4">
-                                    <div class="group relative z-0 mb-2 w-full">
-                                        <x-jet-label for="title" value="{{ __('Título') }}" />
-                                        <x-jet-input id="title" class="mt-1 w-full" type="text" name="title" placeholder="Piscina Sim Confort" required autofocus />
-                                    </div>
-                                    <div class="group relative z-0 mb-2 w-full">
-                                        <x-jet-label for="line" value="{{ __('Linha') }}" />
-                                        <select class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="line">
-                                            <option selected>Selecione...</option>
-                                            <option value="Confort">Confort</option>
-                                            <option value="Standard">Standard</option>
-                                            <option value="Praia">Praia</option>
-                                            <option value="Retangular">Retangular</option>
-                                            <option value="Spa">Spa</option>
-                                            <option value="Personalize">Personalize</option>
-                                        </select>
-                                    </div>
-                                    <div class="group relative z-0 mb-2 w-full">
-                                        <x-jet-label for="model" value="{{ __('Modelo') }}" />
-                                        <x-jet-input id="model" class="mt-1 w-full" type="text" name="model" placeholder="Confort 08" required autofocus />
-                                    </div>
+                                <div class="group relative z-0 mb-2 w-full">
+                                    <x-jet-label for="title" value="{{ __('Título') }}" />
+                                    <x-jet-input id="title" class="mt-1 w-full" type="text" name="title" value="{{ $product->title }}" required autofocus />
                                 </div>
                                 <x-jet-label for="description" value="{{ __('Descrição') }}" />
-                                <textarea class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="description" id="description" cols="30" rows="5" placeholder="Seguindo um design moderno com formas mais arredondadas e produzida em diferentes tamanhos, é o modelo mais querido dos brasileiros."></textarea>
-                                <div class="py-6">
-                                    <div class="border-t border-gray-200"></div>
-                                </div>
-                                <div class="mt-4 grid md:grid-cols-2 md:gap-4">
-                                    <div class="group relative z-0 mb-4 w-full">
-                                        <x-jet-label for="measurement" value="{{ __('Medidas C x L x P') }}" />
-                                        <x-jet-input x-data="" x-mask="99.99m x 9.99m x 9.99m" class="mt-1 w-full" type="text" name="measurement" placeholder="10.00m x 2.50m x 1.40m" required autofocus />
-                                    </div>
-                                    <div class="group relative z-0 mb-4 w-full">
-                                        <x-jet-label for="measurement_price" value="{{ __('Preço') }}" />
-                                        <x-jet-input x-data="" x-mask:dynamic="$money($input, ',')" class="mt-1 w-full" type="text" name="measurement_price" placeholder="12.000,00" required autofocus />
-                                    </div>
-                                </div>
+                                <textarea class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="description" id="description" cols="30" rows="12" value="{{ str_replace('<br />', '', $product->description) }}">{{ str_replace('<br />', '', $product->description) }}</textarea>
+                                <input class="hidden" type="text" name="id" value="{{ $product->id }}">
                             </div>
                             <div x-data="manageViewer()">
                                 <div class="mb-2 py-12 lg:py-0">
@@ -62,9 +32,14 @@
                                                 <p class="mb-2 p-5 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Clique para enviar</span> a imagem</p>
                                                 <p class="text-xs text-gray-500 dark:text-gray-400">PNG, JPG (Tamanho: 799x800px)</p>
                                             </div>
-                                            <input x-on:click="resetPreview($event)" x-on:change="previewImage($event)" id="dropzone-file" type="file" accept="image/*" class="hidden" name="images[]" multiple required />
+                                            <input x-on:click="resetPreview($event)" x-on:change="previewImage($event)" id="dropzone-file" type="file" accept="image/*" class="hidden" name="images[]" multiple />
+                                            <input class="hidden" type="text" name="oldImagesName" value="{{ $product->images }}">
                                         </label>
-                                        <div id="preview" class="mt-4 grid grid-cols-3 justify-center gap-1"></div>
+                                        <div id="preview" class="mt-4 grid grid-cols-3 justify-center gap-1">
+                                            @foreach (explode(',', $product->images) as $image)
+                                                <img class="image-preview h-28 w-28 rounded border border-gray-300 object-cover p-1" src="{{ asset('products/' . $image) }}">
+                                            @endforeach
+                                        </div>
                                     </div>
                                 </div>
                             </div>

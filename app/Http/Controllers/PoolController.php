@@ -24,15 +24,24 @@ class PoolController extends Controller
 
     public function editDo(Request $request)
     {
-        if ($request->hasFile('image')) {
-            $newImageName = uniqid() . '.webp';
+        if ($request->hasFile('images')) {
+            $newImagesName = array();
 
-            Image::make($request->image->getRealPath())
-                ->fit(799, 800)
-                ->encode('webp', 80)
-                ->save(storage_path('app/public/pools/' . $newImageName));
+            foreach ($request->images as $image) {
+                $newImageName = uniqid() . '.webp';
+                $newImagesName[] = $newImageName;
 
-            Storage::delete('pools/' . $request->oldImageName);
+                Image::make($image->getRealPath())
+                    ->fit(799, 800)
+                    ->encode('webp', 70)
+                    ->save(storage_path('app/public/pools/' . $newImageName));
+            }
+
+            foreach (explode(",", $request->oldImagesName) as $image) {
+                if (Storage::exists('pools/' . $image)) {
+                    Storage::delete('pools/' . $image);
+                }
+            }
         }
 
         Pool::whereId($request->id)->update([
@@ -42,9 +51,8 @@ class PoolController extends Controller
             'measurement' => $request->measurement,
             'measurement_price' => $request->measurement_price,
             'model' => $request->model,
-            'image' => ($request->hasFile('image') ? $newImageName : $request->oldImageName),
+            'images' => $request->hasFile('images') ? implode(",", $newImagesName) : $request->oldImagesName,
         ]);
-
 
         return redirect()->route('pool.list');
     }
@@ -52,9 +60,12 @@ class PoolController extends Controller
     public function deleteDo($id)
     {
         $pool = Pool::whereId($id)->get()->first();
+        $images = explode(",", $pool->images);
 
-        if (Storage::exists('pools/' . $pool->image)) {
-            Storage::delete('pools/' . $pool->image);
+        foreach ($images as $image) {
+            if (Storage::exists('pools/' . $image)) {
+                Storage::delete('pools/' . $image);
+            }
         }
 
         Pool::destroy($id);
@@ -69,12 +80,17 @@ class PoolController extends Controller
 
     public function createDo(Request $request)
     {
-        $imageName = uniqid() . '.webp';
+        $imagesName = array();
 
-        Image::make($request->image->getRealPath())
-            ->fit(799, 800)
-            ->encode('webp', 80)
-            ->save(storage_path('app/public/pools/' . $imageName));
+        foreach ($request->images as $image) {
+            $imageName = uniqid() . '.webp';
+            $imagesName[] = $imageName;
+
+            Image::make($image->getRealPath())
+                ->fit(799, 800)
+                ->encode('webp', 70)
+                ->save(storage_path('app/public/pools/' . $imageName));
+        }
 
         Pool::create([
             'title' => $request->title,
@@ -82,8 +98,8 @@ class PoolController extends Controller
             'description' => nl2br($request->description),
             'measurement' => $request->measurement,
             'measurement_price' => $request->measurement_price,
-            'image' => $imageName,
             'model' => $request->model,
+            'images' => implode(",", $imagesName),
         ]);
 
         return redirect()->route('pool.list');
