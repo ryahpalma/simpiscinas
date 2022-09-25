@@ -39,16 +39,20 @@ class ListController extends Controller
         SEOTools::opengraph()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-mobile.jpg', ['height' => 1200, 'width' => 1200]);
         SEOTools::opengraph()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-desktop.jpg', ['height' => 620, 'width' => 1200]);
 
-        JsonLdMulti::newJsonLd();
-        JsonLdMulti::isEmpty();
-        JsonLdMulti::addValue('price', $poolDetails->measurement_price);
-        JsonLdMulti::addValue("priceCurrency", "BRL");
-        JsonLdMulti::setType('Offer');  
+        JsonLdMulti::setType('Product');
         JsonLdMulti::setTitle($poolDetails->title);
         JsonLdMulti::setSite($poolUrl);
         JsonLdMulti::setDescription($poolDescription);
         JsonLdMulti::setUrl($poolUrl);
         JsonLdMulti::setImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-mobile.jpg');
+        JsonLdMulti::addValues([
+            'offers' => [
+                '@type' => 'Offer',
+                'availability' => 'https://schema.org/InStock',
+                'price' => $poolDetails->measurement_price,
+                'priceCurrency' => 'BRL',
+            ],
+        ]);
 
         return view('pages.pool', ['pool' => $poolDetails]);
     }
@@ -84,15 +88,20 @@ class ListController extends Controller
         SEOTools::opengraph()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-mobile.jpg', ['height' => 1200, 'width' => 1200]);
         SEOTools::opengraph()->addImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-desktop.jpg', ['height' => 620, 'width' => 1200]);
 
-        JsonLdMulti::newJsonLd();
-        JsonLdMulti::isEmpty();
-        JsonLdMulti::addValue('price', 'Mediante Orçamento');
-        JsonLdMulti::setType('Offer');  
+        JsonLdMulti::setType('Product');
         JsonLdMulti::setTitle($productDetails->title);
         JsonLdMulti::setSite($productUrl);
         JsonLdMulti::setDescription($productDescription);
         JsonLdMulti::setUrl($productUrl);
         JsonLdMulti::setImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-mobile.jpg');
+        JsonLdMulti::addValues([
+            'offers' => [
+                '@type' => 'Offer',
+                'availability' => 'https://schema.org/InStock',
+                'price' => "0",
+                'priceCurrency' => 'BRL',
+            ],
+        ]);
 
         return view('pages.product', ['product' => $productDetails]);
     }
