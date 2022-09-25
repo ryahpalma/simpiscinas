@@ -50,7 +50,7 @@
                         </div>
                         <div id="buyProduct" class="pt-4 lg:pt-0">
                             <x-button-blue href="{{ route('budget.custom', ['item' => str_replace([' ', '/', '.'], '-', mb_strtolower($pool->title))]) }}" class="lg:w-42 h-10 w-full text-sm uppercase">
-                                {{ __('Comprar agora') }}
+                                {{ __('Solicitar Orçamento') }}
                             </x-button-blue>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                             <x-slot name="images">
                                 @foreach ($images as $image)
                                     <div class="glide__slide bg-gray-200">
-                                        <img class="rounded" src="{{ asset('storage/pools/' . $image) }}">
+                                        <img src="{{ asset('storage/pools/' . $image) }}">
                                     </div>
                                 @endforeach
                             </x-slot>
@@ -114,7 +114,7 @@
                         <x-slot name="images">
                             @foreach ($images as $image)
                                 <div class="glide__slide bg-gray-200">
-                                    <img class="rounded" src="{{ asset('storage/pools/' . $image) }}">
+                                    <img src="{{ asset('storage/pools/' . $image) }}">
                                 </div>
                             @endforeach
                         </x-slot>

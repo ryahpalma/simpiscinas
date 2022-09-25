@@ -24,6 +24,7 @@
         @yield('content')
         <x-footer />
         @stack('scripts')
+        <x-pixel />
     </div>
 </body>
 
