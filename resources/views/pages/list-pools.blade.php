@@ -14,7 +14,7 @@
                     <div title="{{ $pool->title }}">
                         <a href="/piscina/{{ $pool->id }}/{{ str_replace([' ', '/', '.'], '-', mb_strtolower($pool->title)) }}/detalhes">
                             <div class="h-full max-w-sm flex-col rounded-md border border-gray-300 bg-white shadow-md hover:shadow-xl">
-                                <img class="h-72 w-full rounded-t-md bg-slate-100" loading="lazy" src="{{ asset('storage/pools/' . explode(',', $pool->images)[0]) }}" alt="{{ $pool->model }}">
+                                <img class="h-80 lg:h-72 w-full rounded-t-md bg-slate-100" loading="lazy" src="{{ asset('storage/pools/' . explode(',', $pool->images)[0]) }}" alt="{{ $pool->model }}">
                                 <div class="flex flex-col justify-between px-5 pb-5 pt-2">
                                     <div class="flex flex-wrap items-center gap-2">
                                         <span class="text-xl font-medium text-gray-900">R$ {{ $pool->measurement_price }}</span>

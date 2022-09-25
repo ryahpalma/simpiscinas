@@ -14,7 +14,7 @@
                     <div title="{{ $product->title }}">
                         <a href="produto/{{ $product->id }}/{{ str_replace([' ', '/', '.'], '-', mb_strtolower($product->title)) }}/detalhes">
                             <div class="h-full max-w-sm flex-col rounded-md border border-gray-300 bg-white shadow-md hover:shadow-xl">
-                                <img class="h-72 w-full rounded-t-md bg-slate-100" loading="lazy" src="{{ asset('storage/products/' . explode(',', $product->images)[0]) }}" alt="{{ $product->model }}">
+                                <img class="h-80 lg:h-72 w-full rounded-t-md bg-slate-100" loading="lazy" src="{{ asset('storage/products/' . explode(',', $product->images)[0]) }}" alt="{{ $product->model }}">
                                 <div class="flex flex-col justify-between px-5 pb-5 pt-2">
                                     <h5 class="text-md flex-grow font-semibold tracking-tight text-gray-900">{{ $product->title }}</h5>
                                     <div class="flex items-center py-2">
