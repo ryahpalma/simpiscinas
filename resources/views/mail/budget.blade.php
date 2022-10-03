@@ -140,6 +140,11 @@
                                                                         <span style="font-size:15px;color:#000000;margin-bottom:20px;">Estado: {{ $data['state'] }}
                                                                         </span>
                                                                         <br>
+                                                                        @if ($data['product'])
+                                                                            <span style="font-size:15px;color:#000000;margin-bottom:20px;">Produto: {{ $data['product'] }}
+                                                                            </span>
+                                                                            <br>
+                                                                        @endif
                                                                         <span style="font-size:15px;color:#000000;margin-bottom:20px;">Mensagem: {{ $data['message'] }}
                                                                         </span>
                                                                         </p>

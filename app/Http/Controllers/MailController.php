@@ -26,10 +26,11 @@ class MailController extends Controller
             'phone' => $request->phone,
             'state' => $request->state,
             'city' => $request->city,
-            'message' => $request->message
+            'product' => $request->product,
+            'message' => $request->message,
         );
 
-        Mail::to('contato@simpiscinas.com')->send(new Budget($data));
+        Mail::to('contato@simpiscinas.com.br')->send(new Budget($data));
 
         return redirect()->back()->with('status', 'Orçamento solicitado com sucesso, aguarde.');
     }
@@ -42,7 +43,7 @@ class MailController extends Controller
             'phone' => 'required',
             'state' => 'required',
             'city' => 'required',
-            'contract' => 'required'
+            'contract' => 'required',
         ]);
 
         $data = array(
@@ -55,7 +56,7 @@ class MailController extends Controller
             'contract' => $request->file('contract')
         );
 
-        Mail::to('ouvidoria@simpiscinas.com')->send(new Ombudsman($data));
+        Mail::to('contato@simpiscinas.com.br')->send(new Ombudsman($data));
 
         return redirect()->back()->with('status', 'Mensagem enviada com sucesso, aguarde.');
     }
@@ -79,7 +80,7 @@ class MailController extends Controller
             'message' => $request->message
         );
 
-        Mail::to('contato@simpiscinas.com')->send(new Franchise($data));
+        Mail::to('contato@simpiscinas.com.br')->send(new Franchise($data));
 
         return redirect()->back()->with('status', 'Solicitação de franquia feita com sucesso, aguarde.');
     }
