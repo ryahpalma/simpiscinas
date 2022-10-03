@@ -43,7 +43,7 @@
                             <span class="ml-2 text-sm font-medium text-gray-500">5 estrelas</span>
                         </div>
                         <div id="buyProduct" class="pt-4 lg:pt-0">
-                            <x-button-blue href="{{ route('budget.custom', ['item' => $product->title]) }}" class="lg:w-42 h-10 w-full text-sm uppercase">
+                            <x-button-blue href="{{ route('budget.custom', ['item' => str_replace([' ', '/', '.'], '-', mb_strtolower($product->title))]) }}" class="lg:w-42 h-10 w-full text-sm uppercase">
                                 {{ __('Solicitar Orçamento') }}
                             </x-button-blue>
                         </div>
