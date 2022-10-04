@@ -15,6 +15,7 @@
                 <div class="mx-auto mt-4 lg:max-w-sm">
                     <p class="text-deep-purple-50 text-sm">
                         Registrada sob CNPJ 30.153.358/0001-15.<br>
+                        E.P.COMERCIO DE PISCINAS E ACESSORIOS EIRELI<br>
                         Empresa do grupo Sim Piscinas.
                     </p>
                 </div>
