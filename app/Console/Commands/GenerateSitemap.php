@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Spatie\Sitemap\SitemapGenerator;
+use Illuminate\Support\Facades\URL;
 
 class GenerateSitemap extends Command
 {
@@ -28,8 +29,6 @@ class GenerateSitemap extends Command
      */
     public function handle()
     {
-        // modify this to your own needs
-        SitemapGenerator::create(config('app.url'))
-            ->writeToFile(public_path('sitemap.xml'));
+        SitemapGenerator::create('https://www.simpiscinas.com/')->writeToFile(public_path('sitemap.xml'));
     }
 }

@@ -36,7 +36,7 @@ class CarouselController extends Controller
                 ->encode('webp', 50)
                 ->save(storage_path('app/public/carousels/' . $newImageNameDesktop));
 
-            Storage::delete('carousels/' . $request->oldImageName);
+            Storage::delete('carousels/' . $request->oldImageNameDesktop);
         }
 
         if ($request->hasFile('image_mobile')) {
@@ -47,10 +47,10 @@ class CarouselController extends Controller
                 ->encode('webp', 50)
                 ->save(storage_path('app/public/carousels/' . $newImageNameMobile));
 
-            Storage::delete('carousels/' . $request->oldImageName);
+            Storage::delete('carousels/' . $request->oldImageNameMobile);
         }
 
-        if ($request->hasFile('image_mobile') || $request->hasFile('image_mobile')) {
+        if ($request->hasFile('image_desktop') || $request->hasFile('image_mobile')) {
             Carousel::whereId($request->id)->update([
                 'title' => $request->title,
                 'position' => $request->position,
@@ -63,14 +63,14 @@ class CarouselController extends Controller
                 'title' => $request->title,
                 'position' => $request->position,
                 'pool_id' => $request->pool_id,
-                'image_mobile' => ($request->hasFile('image_mobile') ? $newImageNameMobile : $request->oldImageNameDesktop),
+                'image_mobile' => ($request->hasFile('image_desktop') ? $newImageNameDesktop : $request->oldImageNameDesktop),
             ]);
         } elseif ($request->hasFile('image_mobile')) {
             Carousel::whereId($request->id)->update([
                 'title' => $request->title,
                 'position' => $request->position,
                 'pool_id' => $request->pool_id,
-                'image_mobile' => ($request->hasFile('image_mobile') ? $newImageNameMobile : $request->oldImageNameDesktop),
+                'image_mobile' => ($request->hasFile('image_mobile') ? $newImageNameMobile : $request->oldImageNameMobile),
             ]);
         } else {
             Carousel::whereId($request->id)->update([

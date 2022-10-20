@@ -30,6 +30,7 @@ class ListController extends Controller
         $poolDetails = Pool::where('id', $id)->get()->first();
         $poolUrl = 'https://www.simpiscinas.com/piscina/' . $poolDetails->id . '/' . str_replace([' ', '/', '.'], '-', mb_strtolower($poolDetails->title)) . '/detalhes';
         $poolDescription = str_replace(['<br />'], ' ', $poolDetails->description);
+        $poolImageArray = explode(',', $poolDetails->images);
 
         SEOTools::setTitle($poolDetails->title);
         SEOTools::setDescription($poolDescription);
@@ -44,7 +45,7 @@ class ListController extends Controller
         JsonLdMulti::setSite($poolUrl);
         JsonLdMulti::setDescription($poolDescription);
         JsonLdMulti::setUrl($poolUrl);
-        JsonLdMulti::setImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-mobile.jpg');
+        JsonLdMulti::setImage('https://www.simpiscinas.com/public/storage/pools/' . $poolImageArray[0]);
         JsonLdMulti::addValues([
             'offers' => [
                 '@type' => 'Offer',
@@ -78,6 +79,7 @@ class ListController extends Controller
         $productDetails = Product::where('id', $id)->get()->first();
         $productUrl = 'https://www.simpiscinas.com/produto/' . $productDetails->id . '/' . str_replace([' ', '/', '.'], '-', mb_strtolower($productDetails->title)) . '/detalhes';
         $productDescription = str_replace(['<br />'], ' ', $productDetails->description);
+        $productImageArray = explode(',', $productDetails->images);
 
         SEOTools::setTitle($productDetails->title);
         SEOTools::setDescription($productDescription);
@@ -93,7 +95,7 @@ class ListController extends Controller
         JsonLdMulti::setSite($productUrl);
         JsonLdMulti::setDescription($productDescription);
         JsonLdMulti::setUrl($productUrl);
-        JsonLdMulti::setImage('https://www.simpiscinas.com/img/engine/simpiscinas-opengraph-mobile.jpg');
+        JsonLdMulti::setImage('https://www.simpiscinas.com/public/storage/products/' . $productImageArray[0]);
         JsonLdMulti::addValues([
             'offers' => [
                 '@type' => 'Offer',
