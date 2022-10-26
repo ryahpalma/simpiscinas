@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-        <textarea class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 md:mt-4" name="description" id="description" cols="30" rows="4" placeholder="Mensagem"></textarea>
+        <textarea class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 md:mt-4" name="message" id="message" cols="30" rows="4" placeholder="Mensagem" maxlength="500"></textarea>
         <label for="contract" class="mb-2 inline-block text-gray-600">Foto do Contrato*</label>
         <input class="m-0 block w-full rounded-md border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 shadow-sm transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none" accept="application/pdf,image/*" type="file" name="contract" required>
         <div class="flex justify-center pt-8">
